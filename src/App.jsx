@@ -6,6 +6,14 @@ import {login, logout} from "./store/authSlice"
 import { Footer, Header } from './components'
 import { Outlet } from 'react-router-dom'
 
+const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
